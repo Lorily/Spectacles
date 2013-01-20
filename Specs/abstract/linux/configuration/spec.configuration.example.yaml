@@ -1,0 +1,26 @@
+system:
+
+	processor:
+		brand	: 
+		model	:
+		socketCount:
+
+		cores:
+			count:
+			frequency:
+				min	:
+				max	:
+				1	:
+				2	:
+				3	:
+				4	:
+
+		hyperthread:
+
+		cache:
+			L1	:
+        data:
+        address:
+			L2	:
+			L3	:
+		flags:

@@ -1,0 +1,3 @@
+
+card: /sys/class/sound/card0
+id: /sys/class/sound/card0/id

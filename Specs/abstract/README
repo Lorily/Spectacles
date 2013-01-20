@@ -1,0 +1,23 @@
+
+Copyright (C) 2011 W. Scott Rogers
+
+This program is free software.
+You can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation;
+either version 2 of the License.
+Please read the COPYING file.
+
+Spectacles does not write to the system, thus no setters.
+
+Spectacles gets information from /proc or /sys then creates a YAML object.
+
+The YAML object can them be converted to a Python dictionary, or be parsed by
+UNIX type tools, such as sed, awk (or variants), bash, etc.
+
+Many languages have YAML libraries; these libraries may be used to decode the
+YAML object into key:value pairs.
+
+Developers may wish to connect to the Spectacles API directly.  The API is
+accessible via Spectacles.<module>.API.<class>
+ie, "import Spectacles.system.cpu.API.cpu" or  "from Spectacles.system.cpu.API import Cpu"
+

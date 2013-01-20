@@ -1,0 +1,11 @@
+#! yaml
+
+author: Scott Rogers
+version: 2011.4.18
+stability: pre-alpha
+copying: 'Copyright (C) 2011 W. Scott Rogers
+          This program is free software.
+          You can redistribute it and/or modify it under the terms of the
+          GNU General Public License as published by the Free Software Foundation;
+          either version 2 of the License.
+          Please read the COPYING file.'

@@ -1,0 +1,21 @@
+# cpu:
+system: '/sys/devices/system/cpu'
+threadSiblingsList: '/topology/thread_siblings_list'
+pysicalId: '/topology/physical_package_id'
+currentFreq: '/cpufreq/scaling_cur_freq'
+cacheSize: '/size'
+info: '/proc/cpuinfo'
+present: '/sys/devices/system/cpu/present'
+cache: 'cpu0/cache'
+maxFreq: '/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq'
+minFreq: '/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq'
+# index0: data; index1:instruction; index2:L2; index(n):L(n)
+typeCache: '/sys/devices/system/cpu/cpu0/cache/index0/type'
+sizeCache: '/sys/devices/system/cpu/cpu0/cache/index0/size'
+levelCache: '/sys/devices/system/cpu/cpu0/cache/index0/level'
+banList: {'corporation', 'communications', 'gmbh', 'technologies', 'technology',
+            'group', 'ltd.', 'inc.', 'co.', '\(tm\)', '\(TM\)', '\(r\)', '\(R\)',
+            '®', 'rev', '@', 'cpu', 'CPU', 'deca', 'dual core', 'tri core', 'quad core', 'ennea',
+          'genuine', 'hepta', 'hexa', 'multi', 'octa', 'penta', 'processor',
+          'single', 'triple', '[0-9.]+ *[MmGg][Hh][Zz]'}
+          

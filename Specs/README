@@ -1,0 +1,57 @@
+
+Copyright (C) 2011 W. Scott Rogers
+
+This program is free software.
+You can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation;
+either version 2 of the License.
+Please read the COPYING file.
+
+Spectacles does not write to the system, thus no setters.
+
+Spectacles is a Python 3.x library that gets information from /proc or /sys
+(in Linux). It can create a YAML object or pass data through the API.
+
+The YAML object can them be converted to a Python dictionary, or be parsed by
+UNIX type tools, such as sed, awk (or variants), bash, etc.
+
+Many languages have YAML libraries; these libraries may be used to decode the
+YAML object into key:value pairs.
+
+Developers may wish to connect to the Spectacles API directly.  The API is
+accessible via Spectacles.<module>.API.<class>
+ie, "import Spectacles.system.cpu.API.cpu" or  "from Spectacles.system.cpu.API
+import Cpu"
+
+## Framework Layers
+
+Specs is a three level framework.
+
+The lowest level, Abstract, interfaces directly
+with the system.  Each system will 'hide' hardware information in different places.
+The Abstract layer is system specialized, hence the name, it abstracts the frame-
+work from the middle layer.  This layer digs up the info and pushes it to the
+middle layer. (This layer should become intimate with the operating system)
+
+The middle layer is the Liaison layer.  It will do any heavy lifting needed
+by the top, API, layer to get data just right.  This layer should know
+very little, if anything, about the system. But it knows how a system
+'SHOULD' look. ie, a cpu has cache or flags. This layer receives the information
+from the lower level, cleans it up and passes up to the top level. (This layer
+shouldn't care too much about the operating system, but can use a shared library/
+utility layer tool to get the data just right.)
+
+The API layer is the upper outward facing layer.  Other software may request
+system information from this layer without knowing the system.  This layer
+will also attempt to stabilize the output so that other software does not need
+to change.  This will contain two components: one component is to be used by other
+applications to directly interface with Spectacles; the second component returns
+a yaml object object that may be parsed by other systems. This layer gives the
+a clean API to the information so that very little work is needed externally.
+(This layer has no idea what system it's on, it just gives out information)
+
+A fourth encompassing layer is the utility/share layer/library.  It's function
+is simply to abstract functions and classes between and within layers.  It
+simply doesn't care about the framework, it's an assistant layer.  This layer
+helps any of the other three layers when needed, supplying shared libraries and
+methods to those that need it. (one of these is the YAML codec library).

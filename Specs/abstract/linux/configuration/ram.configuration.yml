@@ -1,0 +1,9 @@
+#! yaml
+
+### MEMORY SECTION
+# cat /sys/block/ram*/size
+
+#ram:
+  sysBlock: '/sys/block/ram'
+  size: '/size'
+  info: '/proc/meminfo'
