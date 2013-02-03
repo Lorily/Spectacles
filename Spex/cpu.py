@@ -9,7 +9,7 @@ class Cpu(object):
     ## The order is important
     def __init__(self):
         self            = self
-        self.lens    = CpuLens()
+        self.lens       = CpuLens()
         self.socket     = Socket(self.lens)
         self.core       = Core(self.lens)
     #end
