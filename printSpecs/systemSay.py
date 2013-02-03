@@ -2,8 +2,12 @@
 
 # utility program to test Spectacles
 
-import yaml
-from Specs.codec.systemCodec import SystemCodec
+try:
+    import yaml
+except ImportError:
+    ImportError('Python 3 yaml library required.')
+
+from Spex import SystemCodec
 
 class SystemSay(object):
 
@@ -61,10 +65,10 @@ class SystemSay(object):
         memUsed     = memInfo['used']
         memUnused   = memInfo['unused']
 
-        swapInfo    = systemInfo['swap']
-        swapTotal   = swapInfo['total']
-        swapFree    = swapInfo['free']
-        swapUsed    = swapInfo['used']
+#        swapInfo    = systemInfo['swap']
+#        swapTotal   = swapInfo['total']
+#        swapFree    = swapInfo['free']
+#        swapUsed    = swapInfo['used']
 
         processorFull = "CPU:       Processor:      [ " + \
             socketCount + "-Socket " + \
@@ -85,10 +89,10 @@ class SystemSay(object):
             " | Cache: " + memCache + "MB" + \
             " | Unused: " + memUnused + "MB" + " ]"
 
-        swapFull      = "SWAP:      Swap:           [ " + \
-            "Total: " + swapTotal + "MB" + \
-            " | Free: " + swapFree + "MB" + \
-            " | Used: " + swapUsed + "MB" + " ]"
+#        swapFull      = "SWAP:      Swap:           [ " + \
+#            "Total: " + swapTotal + "MB" + \
+#            " | Free: " + swapFree + "MB" + \
+#            " | Used: " + swapUsed + "MB" + " ]"
 
         if printLevel == '-F':
             print(processorFull)
@@ -97,7 +101,7 @@ class SystemSay(object):
             print(clocksFull)
             print(minMaxFreq)
             print(memoryFull)
-            print(swapFull)
+#            print(swapFull)
         elif printLevel == '-Y':
             self.yamlSay()
         else:

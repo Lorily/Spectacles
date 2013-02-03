@@ -1,0 +1,26 @@
+
+Copyright (C) 2011-2013 W. Scott Rogers
+
+This program is free software.
+You can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation;
+either version 2 of the License.
+Please read the COPYING file.
+
+xRay is the bare metal reader.  Each type of operating system will have it's own module within it.
+ie linux, BSD, Windows
+
+Spex reads system information. It does not write to the system.
+
+Spex gets information from /proc or /sys then creates a Python dict or YAML object.
+
+The YAML object can them be converted to a Python dictionary, or be parsed by
+UNIX type tools, such as sed, awk (or variants), bash, etc.
+
+Many languages have YAML libraries; these libraries may be used to decode the
+YAML object into key:value pairs.
+
+Developers may wish to connect to the Spex API directly.  The API is
+accessible via Spex
+ie, "from Spex import Cpu, Ram"
+

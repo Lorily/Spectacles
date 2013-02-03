@@ -9,10 +9,12 @@
 #  either version 2 of the License.
 #  Please read the COPYING file.
 
-from .system.cpu.API.cpu import Cpu
-from .resources.spectacles_utilities import *
-from .resources.codec.cpuCodec import CpuCodec
-import yaml
+try:
+    import yaml
+except ImportError:
+    ImportError('Python 3 yaml library required.')
+
+from Spex import Cpu, CpuCodec
 
 class CpuSayPy2:
 
@@ -74,20 +76,20 @@ class CpuSayPy2:
         clocksFull    = "           Core Speeds:    "   + cpuDataList['frequencies']
         minMaxFreq    = "           Min/Max Speeds: [ " + cpuDataList['cpuMinFreq'] + " : " + cpuDataList['cpuMaxFreq'] + " ]"
 
-        print processorFull
-        print cacheFull
-        print flagsFull
-        print clocksFull
-        print minMaxFreq
+        print(processorFull)
+        print(cacheFull)
+        print(flagsFull)
+        print(clocksFull)
+        print(minMaxFreq)
     #end
 
     @staticmethod
     def simpleSay():
         cpuDataList = CpuSayPy2.get_print_data('simple')
-        print "CPU:[ " + cpuDataList['socketCount'] + "-Socket " + cpuDataList['coreCount'] + \
+        print("CPU:[ " + cpuDataList['socketCount'] + "-Socket " + cpuDataList['coreCount'] + \
                 "-Core " + cpuDataList['cpuBrand'] + " (" + cpuDataList['cpuHtState'] + \
                         cpuDataList['cpuMcpState'] + cpuDataList['cpuSmpState'] + \
-                        cpuDataList['cpuUniProcessor'] + "-) " + cpuDataList['frequencies'] + "MHz ]"
+                        cpuDataList['cpuUniProcessor'] + "-) " + cpuDataList['frequencies'] + "MHz ]")
     #end
 
     @staticmethod
@@ -99,6 +101,6 @@ class CpuSayPy2:
         system['system'] = yaml.load(codec.encode())
         systemYaml  = yaml.dump(system)
 
-        print systemYaml
+        print(systemYaml)
     #end
 #end class

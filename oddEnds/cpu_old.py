@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from Specs.cpu.core.cpuReader import CpuReader
+from Spex import CpuReader
 
 class Cpu(CpuReader):
 
